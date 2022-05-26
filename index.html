@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>button hover</title>
+
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background: #030303;
+        }
+        .button {
+            display: flex;
+            align-items: center;
+            color: #fff;
+            background: none;
+            border: none;
+            padding: 12px 18px;
+            position: relative;
+            top: 300px;
+            left: 50%;
+            transform: translateX(-50%);
+            cursor: pointer;
+        }
+        .button::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%) translateX(calc(100% + 4px));
+            width: 45px;
+            height: 45px;
+            background: #dc143c;
+            border-radius: 50px;
+            transition: transform .25s .25s cubic-bezier(0, 0, .5, 2),
+            width .25s cubic-bezier(0, 0, .5, 2);
+            z-index: -1;
+        }
+        .button:hover::before {
+            width: 100%;
+            transform: translateY(-50%) translateX(-18px);
+            transition: transform .25s cubic-bezier(0, 0, .5, 2),
+            width .25s .25s cubic-bezier(0, 0, .5, 2);
+        }
+        .button ion-icon {
+            margin-left: 5px;
+            transition: transform .25s .4s cubic-bezier(0, 0, .5, 2);
+        }
+        .button:hover ion-icon {
+            transform: translateX(3px);
+        }
+    </style>
+</head>
+<body>
+
+    <button class="button">Button nè
+        <ion-icon name="arrow-forward-outline"></ion-icon>
+    </button>
+    
+</body>
+</html>
